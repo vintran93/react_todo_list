@@ -21,9 +21,9 @@ class App extends Component {
 
   addItem(){
     //create item with unique id
-    const newItem ={
+    const newItem = {
       id: 1 + Math.random(),
-      value: this.state.newItem.slice()
+      value: this.state.newItem
     }
 
     //copy of current list of items
@@ -52,11 +52,12 @@ class App extends Component {
   render() {
       return (
         <div>
-          Add An Item
+          <h1>My To Do List</h1>
           <br/>
-          <input
+          <br/>
+          &nbsp; &nbsp;<input
             type='text'
-            placeholder='Add item here...'
+            placeholder='Add an item here...'
             value={this.state.newItem}
             onChange={(e) => this.updateInput('newItem', e.target.value)}
           />
@@ -69,7 +70,7 @@ class App extends Component {
               return (
                 <li key={item.id}>
                   {item.value}
-                  <button onClick={() => this.deleteItem(item.id)}>X</button>
+                  &nbsp; &nbsp;<button onClick={() => this.deleteItem(item.id)}>X</button>
                 </li>
               )
             })}
@@ -97,7 +98,7 @@ export default App;
 //   };
 
 //   const deleteHandler = (item) => {
-//     setList(list.filter((ele) => ele != item));
+//     setList(list.filter((ele) => ele !== item));
 //   };
 
 //   return (
